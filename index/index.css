@@ -29,6 +29,7 @@ body{
     top: 170px;
     left: 80px;
     z-index: 1;
+    cursor: auto;
 }
 
 #transparent_table {
@@ -91,5 +92,68 @@ body{
     height: 28px;
 }
 
+#mouse {
+    position: absolute;
+    height: 9px;
+    left: 132px;
+    top: 184px;
+    z-index: 12;
+}
 
+#laptop_on {
+    display: none;
+    position: absolute;
+    left: 95px;
+    top: 165px;
+    z-index: 11;
+    height: 28px;
+}
+
+#laptop_on_dark {
+    display: none;
+    position: absolute;
+    left: 95px;
+    top: 165px;
+    z-index: 11;
+    height: 28px;
+}
+#dark_mode {
+    display: none;
+    position: absolute;
+    background-color: black;
+    z-index: 10;
+    height: 500px;
+    width: 500px;
+    opacity: 70%;
+    pointer-events: none;
+}
+
+#switch_on {
+    display: none;
+    position: absolute;
+    height: 16px;
+    right: 18px;
+    top: 110px;
+}
+
+#switch_off {
+    display: block;
+    position: absolute;
+    right: 18px;
+    top: 110px;
+    height: 16px;
+
+}
+
+#laptop_light {
+    display: none;
+    position: absolute;
+    height: 13px;
+    width: 21px;
+    box-shadow: 0 0 10px rgb(255, 87, 171);
+    opacity: 100%;
+    top: 167.5px;
+    left: 102px;
+    z-index: 12;
+}
 
