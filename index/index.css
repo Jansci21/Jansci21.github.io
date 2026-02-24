@@ -130,19 +130,20 @@ body{
 
 #switch_on {
     display: none;
-    position: absolute;
-    height: 16px;
     right: 18px;
     top: 110px;
 }
 
 #switch_off {
     display: block;
-    position: absolute;
     right: 18px;
     top: 110px;
-    height: 16px;
 
+}
+
+.switches {
+    position: absolute;
+    height: 16px;
 }
 
 #laptop_light {
@@ -157,3 +158,37 @@ body{
     z-index: 12;
 }
 
+#curtain_open {
+    position: absolute;
+    left: 80px;
+    top: 55px;
+}
+
+#curtain_closed {
+    display: none;
+    position: absolute;
+    left: 80px;
+    top: 55px;
+}
+
+#fan {
+    
+    position: absolute;
+    left: 210px;
+}
+
+#fan_spin {
+    display: none;
+    position: absolute;
+    left: 212.14px;
+}
+
+#fan_switch_off {
+    right: 35px;
+    top: 110px;
+}
+
+#fan_switch_on {
+    right: 35px;
+    top: 110px;
+}

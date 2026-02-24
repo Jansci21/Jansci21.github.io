@@ -10,6 +10,13 @@ const switch_on_sound = new Audio("index/index_img/switch_sound_on.mp3");
 switch_on_sound.preload = "auto";
 const switch_off_sound = new Audio("index/index_img/switch_sound_off.mp3")
 switch_off_sound.preload = "auto";
+const curtain_open = document.getElementById('curtain_open')
+const curtain_closed = document.getElementById('curtain_closed')
+const fan_switch_on = document.getElementById('fan_switch_on')
+const fan_switch_off = document.getElementById('fan_switch_off')
+const fan_1 = document.getElementById("fan");
+const fan_2 = document.getElementById("fan_spin");
+
 
 switch_off.addEventListener('click', () => { //light turn on
     switch_on_sound.play();
@@ -91,3 +98,52 @@ mouse.addEventListener("click", () => {
         window.open("https://www.google.com", "_blank");
     }
 })
+
+curtain_open.addEventListener('click', () => {
+    curtain_closed.style.display = "block";
+    curtain_open.style.display = "none";
+})
+
+curtain_closed.addEventListener('click', () => {
+    curtain_closed.style.display = "none";
+    curtain_open.style.display = "block";
+})
+let fanInterval = null;
+fan_switch_off.addEventListener('click', () => {
+    switch_on_sound.play();
+
+    fan_switch_on.style.display = "block";
+    fan_switch_off.style.display = "none";
+
+    let showingFirst = true;
+
+        if (!fanInterval) { //start only if its null
+        fanInterval = setInterval(() => { // the id of the currently running interval stored here.
+            if (showingFirst) {
+                fan_1.style.display = "none";
+                fan_2.style.display = "block";
+            } else {
+                fan_1.style.display = "block";
+                fan_2.style.display = "none";
+            }
+    showingFirst = !showingFirst; // flips true/false
+}, 120);
+}
+});
+
+fan_switch_on.addEventListener('click', () => {
+    switch_off_sound.play();
+    fan_switch_off.style.display = "block";
+    fan_switch_on.style.display = "none";
+
+    clearInterval(fanInterval); //stop running interval and dont call it anymore
+    fanInterval = null; //reset so it can be started again
+
+    // Reset to default frame
+    fan_1.style.display = "block";
+    fan_2.style.display = "none";
+})
+
+
+
+
