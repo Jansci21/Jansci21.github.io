@@ -4,7 +4,7 @@ body{
     margin: 0;
     padding: 0;
     outline: solid green;
-    background-color: whitesmoke;
+    background-color: black;
 }
 
 #room_index {
@@ -97,6 +97,7 @@ body{
     height: 9px;
     left: 132px;
     top: 184px;
+    opacity: 0%;
     z-index: 12;
 }
 
@@ -118,7 +119,7 @@ body{
     height: 28px;
 }
 #dark_mode {
-    display: none;
+    display: block;
     position: absolute;
     background-color: black;
     z-index: 10;
