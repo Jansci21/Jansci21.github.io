@@ -16,6 +16,8 @@ const fan_switch_on = document.getElementById('fan_switch_on')
 const fan_switch_off = document.getElementById('fan_switch_off')
 const fan_1 = document.getElementById("fan");
 const fan_2 = document.getElementById("fan_spin");
+const bed = document.getElementById('bed')
+const bed_made = document.getElementById('bed_made')
 
 
 switch_off.addEventListener('click', () => { //light turn on
@@ -143,6 +145,18 @@ fan_switch_on.addEventListener('click', () => {
     fan_1.style.display = "block";
     fan_2.style.display = "none";
 })
+
+bed.addEventListener('click', () => {
+    bed.style.display  = "none";
+    bed_made.style.display  = "block";
+})
+
+bed_made.addEventListener('click', () => {
+    bed.style.display  = "block";
+    bed_made.style.display  = "none";
+})
+
+
 
 
 

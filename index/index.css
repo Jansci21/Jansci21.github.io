@@ -64,6 +64,12 @@ body{
     top: 160px;
 }
 
+#bed_made {
+    display: none;
+    position: absolute;
+    right: 84px;
+    top: 160px;
+}
 
 #bedside_table {
     position: absolute;
