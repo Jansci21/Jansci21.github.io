@@ -16,8 +16,16 @@ const fan_switch_on = document.getElementById('fan_switch_on')
 const fan_switch_off = document.getElementById('fan_switch_off')
 const fan_1 = document.getElementById("fan");
 const fan_2 = document.getElementById("fan_spin");
-const bed = document.getElementById('bed')
-const bed_made = document.getElementById('bed_made')
+const bed = document.getElementById('bed');
+const bed_made = document.getElementById('bed_made');
+const windows = document.querySelectorAll('.window');
+const today = new Date();
+const hour = today.getHours();
+const minutes = today.getMinutes();
+const morning = document.getElementById('morning');
+const afternoon = document.getElementById('afternoon');
+const evening = document.getElementById('evening');
+const night = document.getElementById('night');
 
 
 switch_off.addEventListener('click', () => { //light turn on
@@ -101,15 +109,46 @@ mouse.addEventListener("click", () => {
     }
 })
 
-curtain_open.addEventListener('click', () => {
+windows.forEach(window => {
+    window.addEventListener('click', () => {
     curtain_closed.style.display = "block";
-    curtain_open.style.display = "none";
+    morning.style.display = "none";
+    afternoon.style.display = "none";
+    evening.style.display = "none";
+    night.style.display = "none";
+})
 })
 
 curtain_closed.addEventListener('click', () => {
     curtain_closed.style.display = "none";
-    curtain_open.style.display = "block";
+    if (curtain_closed.style.display === "none") {
+    if(hour >= 6 && hour < 12) {
+        morning.style.display = "block";
+        afternoon.style.display = "none";
+        evening.style.display = "none";
+        night.style.display = "none";
+    }
+    if(hour >= 12 && hour < 18) {
+        morning.style.display = "none";
+        afternoon.style.display = "block";
+        evening.style.display = "none";
+        night.style.display = "none";
+    }
+    if(hour >= 18 && hour < 21) {
+        morning.style.display = "none";
+        afternoon.style.display = "none";
+        evening.style.display = "block";
+        night.style.display = "none";
+    }
+    if(hour >= 21 && hour < 6) {
+        morning.style.display = "none";
+        afternoon.style.display = "none";
+        evening.style.display = "none";
+        night.style.display = "block";
+    }
+}
 })
+
 let fanInterval = null;
 fan_switch_off.addEventListener('click', () => {
     switch_on_sound.play();
@@ -155,6 +194,8 @@ bed_made.addEventListener('click', () => {
     bed.style.display  = "block";
     bed_made.style.display  = "none";
 })
+
+
 
 
 

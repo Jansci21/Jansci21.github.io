@@ -165,17 +165,19 @@ body{
     z-index: 12;
 }
 
-#curtain_open {
+
+#curtain_closed {
+    display: block;
     position: absolute;
     left: 80px;
     top: 55px;
 }
 
-#curtain_closed {
-    display: none;
+.window {
     position: absolute;
     left: 80px;
     top: 55px;
+    display: none;
 }
 
 #fan {
