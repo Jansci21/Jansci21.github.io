@@ -4,7 +4,7 @@ body{
     margin: 0;
     padding: 0;
     outline: solid green;
-    background-color: black;
+    background-color: black; /*change to black*/
 }
 
 #room_index {
@@ -101,10 +101,9 @@ body{
 #mouse {
     position: absolute;
     height: 9px;
-    left: 132px;
+    left: 132.5px;
     top: 184px;
-    opacity: 0%;
-    z-index: 12;
+    z-index: 3;
 }
 
 #laptop_on {
@@ -112,7 +111,7 @@ body{
     position: absolute;
     left: 95px;
     top: 165px;
-    z-index: 11;
+    z-index: 3;
     height: 28px;
 }
 
@@ -131,7 +130,7 @@ body{
     z-index: 10;
     height: 500px;
     width: 500px;
-    opacity: 70%;
+    opacity: 60%; /*change to 100*/
     pointer-events: none;
 }
 
@@ -162,7 +161,7 @@ body{
     opacity: 100%;
     top: 167.5px;
     left: 102px;
-    z-index: 12;
+    z-index: 11;
 }
 
 
@@ -200,4 +199,93 @@ body{
 #fan_switch_on {
     right: 35px;
     top: 110px;
+}
+
+#laptop_screen {
+    background-image: url("index_img/laptop_screen.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: none;
+    position: absolute;
+    opacity: 100%;
+    z-index: 20;
+    height: 700px;
+    width: 985px;
+}
+
+.folder {
+    display: none;
+    position: absolute;
+    height: 700px;
+    width: 985px;
+}
+
+#movie_icon {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}
+
+.font {
+    position: absolute;
+    font-family: 'Pixelify Sans';
+    font-weight: 700;
+    color: rgb(252, 220, 220);
+    top: 135px;
+    left: 50px;
+}
+
+.folder_button {
+    display: none;
+    opacity: 0%;
+}
+#folder1_button {
+    position: absolute;
+    height: 72px;
+    width: 24px;
+    background-color: red;
+    top: 58px;
+    left: 35px;
+}
+#folder2_button {
+    position: absolute;
+    height: 143px;
+    width: 24px;
+    background-color: red;
+    top: 143px;
+    left: 35px;
+}
+#folder3_button {
+    position: absolute;
+    height: 143px;
+    width: 24px;
+    background-color: red;
+    top: 297px;
+    left: 35px;
+}
+#folder4_button {
+    position: absolute;
+    height: 143px;
+    width: 24px;
+    background-color: red;
+    top: 451px;
+    left: 35px;
+}
+
+.movie_grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    z-index: 30;
+}
+
+.movie {
+    text-align: center;
+    cursor: pointer;
+    z-index: 30;
+}
+
+.movie img {
+    width: 120px;
+    border-radius: 10px;
 }
