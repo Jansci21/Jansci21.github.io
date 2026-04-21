@@ -1,0 +1,453 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    /*outline: solid green;*/
+    background-color: black; /*change to black*/
+}
+
+#room_index {
+    width: 100vw;
+    height: 100vh;
+    outline: solid pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#background {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background: url('index_img/room.PNG') no-repeat;
+    background-size: cover;
+}
+
+#table {
+    position: absolute;
+    top: 170px;
+    left: 80px;
+    z-index: 1;
+    cursor: auto;
+}
+
+#transparent_table {
+    top: 170px;
+    left: 80px;
+    position: absolute;
+    outline: rgb(128, 0, 255) solid 5px;
+    clip-path: polygon(100% 0, 100% 16%, 100% 35%, 100% 91%, 62% 91%, 63% 46%, 55% 39%, 6% 39%, 0% 35%, 0 0);
+    z-index: 2;
+    opacity: 0%;
+}
+
+.room #transparent_table:hover ~ #table {
+    filter: brightness(60%);
+    
+}
+
+.objects:hover {
+    filter: brightness(60%);
+}
+
+#shelf {
+    position: absolute;
+    top: 82px;
+    left: 10px;
+}
+
+
+#bed {
+    position: absolute;
+    right: 90px;
+    top: 160px;
+}
+
+#bed_made {
+    display: none;
+    position: absolute;
+    right: 84px;
+    top: 160px;
+}
+
+#bedside_table {
+    position: absolute;
+    height: 61px;
+    right: 210px;
+    top: 160px;
+}
+#bedside_table2 {
+    position: absolute;
+    height: 61px;
+    top: 160px; 
+    right: 38px;
+}
+
+#closet_side {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+}
+
+#laptop {
+    position: absolute;
+    left: 95px;
+    top: 165px;
+    z-index: 3;
+    height: 28px;
+}
+
+#mouse {
+    position: absolute;
+    height: 9px;
+    left: 132.5px;
+    top: 184px;
+    z-index: 3;
+}
+
+#laptop_on {
+    display: none;
+    position: absolute;
+    left: 95px;
+    top: 165px;
+    z-index: 3;
+    height: 28px;
+}
+
+#laptop_on_dark {
+    display: none;
+    position: absolute;
+    left: 95px;
+    top: 165px;
+    z-index: 11;
+    height: 28px;
+}
+#dark_mode {
+    display: block;
+    position: absolute;
+    background-color: black;
+    z-index: 10;
+    height: 500px;
+    width: 500px;
+    opacity: 60%; /*change to 100*/
+    pointer-events: none;
+}
+
+#switch_on {
+    display: none;
+    right: 18px;
+    top: 110px;
+}
+
+#switch_off {
+    display: block;
+    right: 18px;
+    top: 110px;
+
+}
+
+.switches {
+    position: absolute;
+    height: 16px;
+}
+
+#laptop_light {
+    display: none;
+    position: absolute;
+    height: 13px;
+    width: 21px;
+    box-shadow: 0 0 10px rgb(255, 87, 171);
+    opacity: 100%;
+    top: 167.5px;
+    left: 102px;
+    z-index: 11;
+}
+
+
+#curtain_closed {
+    display: block;
+    position: absolute;
+    left: 80px;
+    top: 55px;
+}
+
+.window {
+    position: absolute;
+    left: 80px;
+    top: 55px;
+    display: none;
+}
+
+#fan {
+    
+    position: absolute;
+    left: 210px;
+}
+
+#fan_spin {
+    display: none;
+    position: absolute;
+    left: 212.14px;
+}
+
+#fan_switch_off {
+    right: 35px;
+    top: 110px;
+}
+
+#fan_switch_on {
+    right: 35px;
+    top: 110px;
+}
+
+#laptop_screen {
+    background-image: url("index_img/laptop_screen.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: none;
+    position: absolute;
+    opacity: 100%;
+    z-index: 20;
+    height: 700px;
+    width: 985px;
+}
+
+.folder {
+    display: none;
+    position: absolute;
+    height: 700px;
+    width: 985px;
+}
+
+#movie_icon {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}
+
+.font {
+    position: absolute;
+    font-family: 'Pixelify Sans';
+    font-weight: 700;
+    color: rgb(252, 220, 220);
+    top: 135px;
+    left: 50px;
+}
+
+.folder_button {
+    display: none;
+    opacity: 0%;
+}
+#folder1_button {
+    position: absolute;
+    height: 72px;
+    width: 24px;
+    background-color: red;
+    top: 58px;
+    left: 35px;
+}
+#folder2_button {
+    position: absolute;
+    height: 143px;
+    width: 24px;
+    background-color: red;
+    top: 143px;
+    left: 35px;
+}
+#folder3_button {
+    position: absolute;
+    height: 143px;
+    width: 24px;
+    background-color: red;
+    top: 297px;
+    left: 35px;
+}
+#folder4_button {
+    position: absolute;
+    height: 143px;
+    width: 24px;
+    background-color: red;
+    top: 451px;
+    left: 35px;
+}
+
+.movie_grid {
+    position: absolute;
+    z-index: 30;
+    top: 90px;
+    left: 60px;
+    /*outline: green 3px solid;*/
+    height: 480px;
+    width: 885px;
+    overflow-y: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.movie_grid::-webkit-scrollbar {
+    width: 12px;
+}
+.movie_grid::-webkit-scrollbar-thumb {
+    background-color: darkgray;
+    border-radius: 6px;
+}
+
+.movie_grid::-webkit-scrollbar-track {
+    background: black;
+    border-radius: 6px;
+}
+
+.movie_row {
+    /*outline: red solid 5px;*/
+    display: grid;
+    grid-template-columns: repeat(5, 150px);
+    justify-content: space-evenly;
+    row-gap: 0px;
+
+}
+.movie_row img {
+    height: 210px;
+    width: 150px;
+    box-shadow: -5px 0 0 0 black;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+    /*outline: purple solid 5px;*/
+}
+.movie_row img:hover {
+    transform: scale(1.1)
+}
+
+
+
+
+.movie_row p {
+    font-family: 'Jersey 25';
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    opacity: 100%;
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    font-size: bolder;
+    /*transition: opacity 0.3s ease;*/
+}
+
+.movie_row:hover p{
+    opacity: 100%;
+}
+
+#folder_2_text {
+    position: absolute;
+    transform: rotate(-90deg);
+    font-family: 'Jersey 25';
+    top: 187px;
+    left: 28px;
+    z-index: 30;
+    pointer-events: none;
+}
+
+#folder_2_inside {
+    z-index: 31;
+    position: absolute;
+    height: 700px;
+    width: 985px;
+}
+
+.movie_individual img{
+    height: 330px;
+    width: 240px;
+    border-radius: 20px;
+    /*outline: green solid 5px;*/
+    margin-top: 50px;
+}
+
+.movie_individual {
+    position: absolute;
+    z-index: 35;
+    top: 70px;
+    left: 100px;
+    /*outline: orange solid 5px;*/
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    height: 525px;
+    width: 850px;
+    
+
+}
+
+.text-container #description {
+    color: white;
+    font-family: 'Jersey 25';
+    font-size: 25px;
+    height: 220px;
+    width: 530px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    overflow-y: auto;
+    margin: 0;
+    /*outline: yellow solid;*/
+}
+
+#description::-webkit-scrollbar {
+    display: none;
+}
+
+.text-container #title {
+    margin-top: 58px;
+    /*outline: red solid 5px;*/
+    color: white;
+    font-size: 37px;
+    font-family: 'Jersey 25';
+    font-weight: bold;
+    width: fit-content;
+    height: fit-content;
+    margin-bottom: 10px;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    /*outline: blue solid 6px;*/
+    width: fit-content;
+    height: 100%;
+    padding-left: 20px;
+}
+
+.search_container {
+    position: absolute;
+    z-index: 50;
+    top: 60px;
+    right: 80px;
+    
+}
+#search_bar {
+    border-radius: 10px;
+    height: 24px;
+    width: 200px;
+    background-color: black;
+    border: none;
+    color: white;
+}
+
+.small_text {
+    /*outline: white solid 5px;*/
+    flex-direction: row;
+    display: flex;
+    
+}
+
+.small_text p:not(:last-child)::after {
+    content: "•";
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.small_text p {
+    font-family: 'Jersey 25';
+    color: white;
+}

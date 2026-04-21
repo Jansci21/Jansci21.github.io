@@ -3,7 +3,7 @@ body{
     width: 100vw;
     margin: 0;
     padding: 0;
-    outline: solid green;
+    /*outline: solid green;*/
     background-color: black; /*change to black*/
 }
 
@@ -24,6 +24,7 @@ body{
     background-size: cover;
 }
 
+/*Table*/
 #table {
     position: absolute;
     top: 170px;
@@ -51,13 +52,14 @@ body{
     filter: brightness(60%);
 }
 
+/*Shelf*/
 #shelf {
     position: absolute;
     top: 82px;
     left: 10px;
 }
 
-
+/*Bed*/
 #bed {
     position: absolute;
     right: 90px;
@@ -71,6 +73,7 @@ body{
     top: 160px;
 }
 
+/*Bedside table*/
 #bedside_table {
     position: absolute;
     height: 61px;
@@ -84,12 +87,14 @@ body{
     right: 38px;
 }
 
+/*Closet*/
 #closet_side {
     position: absolute;
     bottom: 20px;
     left: 10px;
 }
 
+/*Laptop*/
 #laptop {
     position: absolute;
     left: 95px;
@@ -98,13 +103,6 @@ body{
     height: 28px;
 }
 
-#mouse {
-    position: absolute;
-    height: 9px;
-    left: 132.5px;
-    top: 184px;
-    z-index: 3;
-}
 
 #laptop_on {
     display: none;
@@ -123,6 +121,31 @@ body{
     z-index: 11;
     height: 28px;
 }
+
+
+#laptop_light {
+    display: none;
+    position: absolute;
+    height: 13px;
+    width: 21px;
+    box-shadow: 0 0 10px rgb(255, 87, 171);
+    opacity: 100%;
+    top: 167.5px;
+    left: 102px;
+    z-index: 11;
+}
+
+
+/*Mouse*/
+#mouse {
+    position: absolute;
+    height: 9px;
+    left: 132.5px;
+    top: 184px;
+    z-index: 3;
+}
+
+/*Light*/
 #dark_mode {
     display: block;
     position: absolute;
@@ -152,19 +175,7 @@ body{
     height: 16px;
 }
 
-#laptop_light {
-    display: none;
-    position: absolute;
-    height: 13px;
-    width: 21px;
-    box-shadow: 0 0 10px rgb(255, 87, 171);
-    opacity: 100%;
-    top: 167.5px;
-    left: 102px;
-    z-index: 11;
-}
-
-
+/*Curtain*/
 #curtain_closed {
     display: block;
     position: absolute;
@@ -179,6 +190,7 @@ body{
     display: none;
 }
 
+/*Fan*/
 #fan {
     
     position: absolute;
@@ -201,8 +213,16 @@ body{
     top: 110px;
 }
 
+#calender {
+    position: absolute;
+    height: 20px;
+    top: 130px;
+    left: 260px;
+}
+
+/*Laptop Screen*/
 #laptop_screen {
-    background-image: url("index_img/laptop_screen.png");
+    background-image: url('index_img/laptop_outline\ \(1\).png');
     background-size: contain;
     background-repeat: no-repeat;
     display: none;
@@ -210,23 +230,20 @@ body{
     opacity: 100%;
     z-index: 20;
     height: 700px;
-    width: 985px;
-}
+    width: 985px;}
 
-.folder {
-    display: none;
+.pages {
     position: absolute;
-    height: 700px;
-    width: 985px;
+    top: 35px;
+    left: 22px;
+    width: 942px;
+    height: 584px;
+    
 }
 
-#movie_icon {
-    position: absolute;
-    left: 50px;
-    top: 50px;
-}
+/*Movie App*/
 
-.font {
+.app_font {
     position: absolute;
     font-family: 'Pixelify Sans';
     font-weight: 700;
@@ -235,57 +252,393 @@ body{
     left: 50px;
 }
 
-.folder_button {
+#movie_icon {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}
+
+#inside {
+    background-color: rgb(15, 15, 15);
     display: none;
-    opacity: 0%;
-}
-#folder1_button {
-    position: absolute;
-    height: 72px;
-    width: 24px;
-    background-color: red;
-    top: 58px;
-    left: 35px;
-}
-#folder2_button {
-    position: absolute;
-    height: 143px;
-    width: 24px;
-    background-color: red;
-    top: 143px;
-    left: 35px;
-}
-#folder3_button {
-    position: absolute;
-    height: 143px;
-    width: 24px;
-    background-color: red;
-    top: 297px;
-    left: 35px;
-}
-#folder4_button {
-    position: absolute;
-    height: 143px;
-    width: 24px;
-    background-color: red;
-    top: 451px;
-    left: 35px;
+    flex-direction: column;
+    overflow: hidden;
 }
 
-.movie_grid {
+
+#main_content {
     display: flex;
+
+
+}
+
+/*Top bar*/
+#top_bar {
+    display: flex;
+    flex-direction: row;
+    height: 35px;
+    background-color: black;
+}
+
+#top_bar p {
+    color: rgb(200, 200, 200);
+    font-family: monospace;
+}
+
+#small_icon {
+    height: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#top_bar #left {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+}
+
+#path {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    margin-left: 5px
+}
+
+#top_bar #left #path p:not(:last-child)::after {
+    content: "-";
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#top_bar #right {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    width: 100%;
     gap: 20px;
-    overflow-x: auto;
-    z-index: 30;
+    align-items: center;
 }
 
-.movie {
-    text-align: center;
+/*App functions*/
+#minimize {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: yellow;
+}
+
+#close {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+/*Sidebar*/
+#sidebar_closed {
+    z-index: 3;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    gap: 20px;
+    height: 549px;
+    width: 50px;
+    transition: width 0.3s ease;
     cursor: pointer;
-    z-index: 30;
 }
 
-.movie img {
-    width: 120px;
-    border-radius: 10px;
+#sidebar_closed.open {
+    width: 250px;
+    cursor: pointer;
+    
 }
+
+.sidebar_dim.dimmed {
+    background-color: black;
+    opacity: 0.5;
+}
+
+/*Sidebar buttons*/
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+   
+}
+
+#movies {
+     
+    background-color: rgb(239, 136, 173);
+}
+
+#shows {
+
+    background-color: rgb(165, 56, 96);
+}
+
+#anime {
+
+    background-color: rgb(103, 13, 47);
+}
+
+#expand {
+    font-size: 50px;
+    font-weight: bolder;
+    font-family: monospace;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+/*Search bar*/
+.search_container {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 30px;
+    
+    width: 0px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    transition: width 0.3s ease;
+}
+
+.search_container.open {
+    width: 200px;
+    
+}
+
+.search_icon {
+    position: absolute;
+    opacity: 1;
+    right: 0px;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    z-index: 2;
+    
+    transition: transform 0.3s ease;
+    
+}
+
+.movie_container .search_icon{
+    background-color: rgb(239, 136, 173);
+}
+
+.shows_container .search_icon{
+    background-color: rgb(165, 56, 96);
+}
+
+.anime_container .search_icon{
+    background-color: rgb(103, 13, 47);
+}
+
+
+
+.search_icon.slide {
+    transform: translateX(-175px);
+}
+
+.search_bar {
+    padding-left: 0px;
+    border-radius: 10px;
+    margin-right: 7px;
+    height: 24px;
+    width: 100%;
+    background-color: black;
+    border: none;
+    color: white;
+    overflow: hidden; 
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+}
+
+.movie_container .search_bar:focus {
+    outline: 2px solid rgb(239, 136, 173);
+}
+
+.shows_container .search_bar:focus {
+    outline: 2px solid  rgb(165, 56, 96);
+}
+
+.anime_container .search_bar:focus {
+    outline: 2px solid rgb(103, 13, 47);
+}
+
+.search_bar.move {
+    opacity: 1;
+    padding-left: 30px;
+    pointer-events: auto;
+}
+
+/*Movie container*/
+
+.film_containers {
+    display: flex;
+    flex-direction: column;
+    height: 497px;
+    width: 885px;
+    overflow-y: auto;
+    margin-top: 40px;
+    padding-top: 10px;
+    margin-left: 55px;
+
+}
+
+
+.grids {
+    /*outline: red solid 5px;*/
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: space-evenly;
+    row-gap: 0px;
+    margin-left: 10px;
+    margin-right: 20px;
+    gap: 25px;
+
+}
+.grids img {
+    height: 210px;
+    width: 150px;
+    box-shadow: -5px 0 0 0 black;
+    box-shadow: 10px 10px 20px 0px rgb(0, 0, 0);
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+
+    /*outline: purple solid 5px;*/
+}
+.grids img:hover {
+    transform: scale(1.1)
+}
+
+.grids p {
+    font-family: 'Jersey 25';
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    opacity: 100%;
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    font-size: bolder;
+}
+
+
+/*Scrollbar grid*/
+.film_containers::-webkit-scrollbar {
+    width: 12px;
+
+}
+.film_containers::-webkit-scrollbar-thumb {
+    background-color: darkgray;
+    border-radius: 6px;
+}
+
+.film_containers::-webkit-scrollbar-track {
+    background: black;
+    border-radius: 6px;
+}
+
+/*Individual movie select*/
+.indivs img{
+    height: 330px;
+    width: 240px;
+    border-radius: 20px;
+    /*outline: green solid 5px;*/
+    margin-top: 50px;
+}
+
+.indivs {
+    position: absolute;
+    top: 70px;
+    left: 100px;
+    /*outline: orange solid 5px;*/
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    height: 525px;
+    width: 850px;
+    
+
+}
+
+/*Text container*/
+.text-container {
+    display: flex;
+    flex-direction: column;
+    /*outline: blue solid 6px;*/
+    width: fit-content;
+    height: 100%;
+    padding-left: 20px;
+}
+
+.text-container #title {
+    margin-top: 58px;
+    /*outline: red solid 5px;*/
+    color: white;
+    font-size: 37px;
+    font-family: 'Jersey 25';
+    font-weight: bold;
+    width: fit-content;
+    height: fit-content;
+    margin-bottom: 10px;
+}
+
+/*Small text, between descrip and title*/
+.small_text {
+    /*outline: white solid 5px;*/
+    flex-direction: row;
+    display: flex;
+    
+}
+
+.small_text p:not(:last-child)::after {
+    content: "•";
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.small_text p {
+    font-family: 'Jersey 25';
+    color: white;
+}
+
+/*Description Movie*/
+.text-container #description {
+    color: white;
+    font-family: 'Jersey 25';
+    font-size: 25px;
+    height: 220px;
+    width: 530px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    overflow-y: auto;
+    margin: 0;
+    /*outline: yellow solid;*/
+}
+
+#description::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+
+
+
+

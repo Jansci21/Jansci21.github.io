@@ -1,0 +1,296 @@
+body{
+    /*outline: solid green;*/
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: black; /*change to black*/
+}
+
+#index {
+    /*outline: solid pink;*/
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#room {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background: url('index_img/room.PNG') no-repeat;
+    background-size: cover;
+}
+
+.objects:hover {
+    filter: brightness(60%);
+}
+
+#dark_mode {
+    display: block;
+    position: absolute;
+    background-color: black;
+    z-index: 10;
+    height: 500px;
+    width: 500px;
+    opacity: 60%; /*change to 100*/
+    pointer-events: none;
+}
+
+
+
+/*Table*/
+#table {
+    position: absolute;
+    top: 170px;
+    left: 80px;
+    z-index: 1;
+    cursor: auto;
+}
+#table_button {
+    /*outline: rgb(128, 0, 255) solid 5px;*/
+    top: 170px;
+    left: 80px;
+    position: absolute;
+    clip-path: polygon(100% 0, 100% 16%, 100% 35%, 100% 91%, 62% 91%, 63% 46%, 55% 39%, 6% 39%, 0% 35%, 0 0);
+    z-index: 2;
+    opacity: 0%;
+}
+.room #transparent_table:hover ~ #table {
+    filter: brightness(60%);
+}
+
+/*Shelf*/
+#shelf {
+    position: absolute;
+    top: 82px;
+    left: 10px;
+}
+
+/*Bed*/
+#bed {
+    position: absolute;
+    right: 90px;
+    top: 160px;
+}
+
+#bed_made {
+    display: none;
+    position: absolute;
+    right: 84px;
+    top: 160px;
+}
+
+/*Bedside table*/
+#bedside_table {
+    position: absolute;
+    height: 61px;
+    right: 210px;
+    top: 160px;
+}
+#bedside_table2 {
+    position: absolute;
+    height: 61px;
+    top: 160px; 
+    right: 38px;
+}
+
+/*Closet*/
+#closet_side {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+}
+
+/*Laptop*/
+#laptop {
+    position: absolute;
+    left: 95px;
+    top: 165px;
+    z-index: 3;
+    height: 28px;
+}
+#laptop_on {
+    display: none;
+    position: absolute;
+    left: 95px;
+    top: 165px;
+    z-index: 3;
+    height: 28px;
+}
+#laptop_on_dark {
+    display: none;
+    position: absolute;
+    left: 95px;
+    top: 165px;
+    z-index: 11;
+    height: 28px;
+}
+#laptop_light {
+    display: none;
+    position: absolute;
+    height: 13px;
+    width: 21px;
+    box-shadow: 0 0 10px rgb(255, 87, 171);
+    opacity: 100%;
+    top: 167.5px;
+    left: 102px;
+    z-index: 11;
+}
+
+/*Mouse*/
+#mouse {
+    position: absolute;
+    height: 9px;
+    left: 132.5px;
+    top: 184px;
+    z-index: 3;
+}
+
+/*Light switch*/
+#switch_on {
+    display: none;
+    right: 18px;
+    top: 110px;
+}
+
+#switch_off {
+    display: block;
+    right: 18px;
+    top: 110px;
+
+}
+
+.switches {
+    outline: red solid 5px;
+    height: 16px;
+}
+
+
+#curtain_closed {
+    display: block;
+    position: absolute;
+    left: 80px;
+    top: 55px;
+}
+
+.window {
+    position: absolute;
+    left: 80px;
+    top: 55px;
+    display: none;
+}
+
+/*Fan*/
+#fan {
+    
+    position: absolute;
+    left: 210px;
+}
+
+#fan_spin {
+    display: none;
+    position: absolute;
+    left: 212.14px;
+}
+
+#fan_switch_off {
+    right: 35px;
+    top: 110px;
+}
+
+#fan_switch_on {
+    right: 35px;
+    top: 110px;
+}
+
+#laptop_screen {
+    background-image: url("index_img/laptop_screen.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: none;
+    position: absolute;
+    opacity: 100%;
+    z-index: 20;
+    height: 700px;
+    width: 985px;
+}
+
+.folder {
+    display: none;
+    position: absolute;
+    height: 700px;
+    width: 985px;
+}
+
+#movie_icon {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}
+
+.font {
+    position: absolute;
+    font-family: 'Pixelify Sans';
+    font-weight: 700;
+    color: rgb(252, 220, 220);
+    top: 135px;
+    left: 50px;
+}
+
+.folder_button {
+    display: none;
+    opacity: 0%;
+}
+#folder1_button {
+    position: absolute;
+    height: 72px;
+    width: 24px;
+    background-color: red;
+    top: 58px;
+    left: 35px;
+}
+#folder2_button {
+    position: absolute;
+    height: 143px;
+    width: 24px;
+    background-color: red;
+    top: 143px;
+    left: 35px;
+}
+#folder3_button {
+    position: absolute;
+    height: 143px;
+    width: 24px;
+    background-color: red;
+    top: 297px;
+    left: 35px;
+}
+#folder4_button {
+    position: absolute;
+    height: 143px;
+    width: 24px;
+    background-color: red;
+    top: 451px;
+    left: 35px;
+}
+
+.movie_grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    z-index: 30;
+}
+
+.movie {
+    text-align: center;
+    cursor: pointer;
+    z-index: 30;
+}
+
+.movie img {
+    width: 120px;
+    border-radius: 10px;
+}

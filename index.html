@@ -5,25 +5,116 @@
     <link rel="stylesheet" href="index/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Petit+Formal+Script&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div id="room_index">
         <!--Laptop_Screen-->
+        
         <div id="laptop_screen">
+            <img id="wallpaper" src = "index/index_img/wallpaper.png" class="pages">
+
+            <div id="Movie_App-container">
             <!--Watch Log-->
-            <img id="movie_icon" src="index/index_img/Movie_icon.png">
-            <p class="font">Watch Log</p>
-            <img id="folder_1" src="index/index_img/folder_1.png" class="folder" data-target="folder_1-content">
-            <img id="folder_2" src="index/index_img/folder_2.png" class="folder" data-target="folder_2-content">
-            <img id="folder_3" src="index/index_img/folder_3.png" class="folder" data-target="folder_3-content">
-            <img id="folder_4" src="index/index_img/folder_4.png" class="folder" data-target="folder_4-content">
-            <div id="folder1_button" class="folder_button" data-target="folder_1"></div>
-            <div id="folder2_button" class="folder_button" data-target="folder_2"></div>
-            <div id="folder3_button" class="folder_button" data-target="folder_3"></div>
-            <div id="folder4_button" class="folder_button" data-target="folder_4"></div>
-            <div class="movie_grid"></div>
+                <div id="movie_app">
+                    <img id="movie_icon" src="index/index_img/Movie_icon.png">
+                    <p class="app_font">Watch Log</p>
+                </div>
+                
+                <div id="inside" class="pages">
+
+                    <div id="top_bar">
+                        <div id="left">
+                            <img id="small_icon" src="index/index_img/Movie_icon.png">
+                            <p>Watch Log - </p>
+                            <div id ="path">
+                                
+
+                                <!--Objects Created-->
+                            </div>
+                            
+                        </div>
+
+                        <div id="right">
+                            <p>•••</p>
+                            <div id="minimize"></div>
+                            <div id="close"></div>
+                        </div>
+                    </div>
+
+                    <div id="main_content">
+                        <div id="sidebar_closed">
+                            <p id="expand">></p>
+                            <div id="movies" class="button">
+                                <p></p>
+                            </div>
+                            
+                            
+                            <div id="shows" class="button">
+                                <p></p>
+                            </div> 
+                            <div id="anime" class="button">
+                                <p></p>
+                            </div>      
+                        </div>
+                        <div class="sidebar_dim">
+
+                        
+                        <div class="movie_container film_containers">
+
+                            <div class="search_container">
+                                <div class="search_icon"></div>
+                                <input type="text" class="search_bar" placeholder="Search movies..." autocomplete="off">
+                                
+                            </div>
+                                <div class = "movie_grid grids">
+                                    <!--Objects created-->    
+                                </div>
+                                
+                        </div>
+                        <div class = "movie_indiv indivs">
+                            <!--Objects created-->
+                        </div>
+
+                        <div class="shows_container film_containers">
+
+                            <div class="search_container">
+                                <div class="search_icon"></div>
+                                <input type="text" class="search_bar" placeholder="Search movies..." autocomplete="off">
+                            
+                            </div>
+                                <div class = "shows_grid grids">
+                                    <!--Objects created-->    
+                                </div>
+                            
+                        </div>
+                        <div class = "shows_indiv indivs">
+                            <!--Objects created-->
+                        </div>
+                        
+                        <div class = "anime_container film_containers">
+
+                            <div class="search_container">
+                                <div class="search_icon"></div>
+                                <input type="text" class="search_bar" placeholder="Search movies..." autocomplete="off">
+                            
+                            </div>
+                                <div class = "anime_grid grids">
+                                    <!--Objects created-->    
+                                </div>
+                        </div>
+                        <div class = "anime_indiv indivs">
+                            <!--Objects created-->
+                        </div>
+                        </div>
+                    </div>
+                     
+                </div>
+            </div>
+            
+            
         </div>        
         <div id="background">
             <div class="room">
@@ -56,9 +147,6 @@
             <img id="laptop_on" src="index/index_img/laptop_on.png">
             <img id="laptop_on_dark" src="index/index_img/laptop_on_dark (1).png">
 
-            <!--Laptop_screen_big-->
-            
-
             <!--Mouse_link-->
             <div id="mouse_link">
                 <img id="mouse" src="index/index_img/mouse.png">
@@ -76,6 +164,10 @@
             <img id="fan_switch_on" src="index/index_img/switch_on.png" class="switches">
             <img id="fan_switch_off" src="index/index_img/switch_off.png" class="switches">
 
+            <a href="birthday.html" target="_blank">
+            <img id="calender" src="index/index_img/Calender.png" class="objects">
+            </a>
+
             <!--Dark mode-->
             <div id="dark_mode"></div>
                 <img id="switch_on" src="index/index_img/switch_on.png" class="switches">
@@ -85,8 +177,6 @@
         </div>
     </div>
     
-
-
 
 <script src="index/index.js"></script>
 </body>
