@@ -8,6 +8,10 @@ const fan_2 = document.getElementById("fan_spin");
 const bed = document.getElementById('bed');
 const bed_made = document.getElementById('bed_made');
 
+//Closet
+const closet_open = document.getElementById("closet_open")
+const closet_closed = document.getElementById("closet_closed")
+
 //Day times
 const morning = document.getElementById('morning');
 const afternoon = document.getElementById('afternoon');
@@ -68,6 +72,20 @@ const anime_indiv = document.querySelector(".anime_indiv")
 
 const exit_laptop = document.getElementById("close")
 const expand_sidebar = document.getElementById("expand")
+
+//buttons
+const left_pov = document.getElementById("left_pov")
+const right_pov = document.getElementById("right_pov")
+
+//sidebar
+const sidebar_dim = document.querySelector(".sidebar_dim")
+const main_content = document.getElementById("main_content")
+const sidebar_closed = document.getElementById("sidebar_closed")
+
+//clock
+const hour_hand = document.getElementById("hour_hand")
+const min_hand = document.getElementById("min_hand")
+const sec_hand = document.getElementById("sec_hand")
 
 
 
@@ -253,13 +271,18 @@ let movieList = [
 
 
 let state = {
+    pov: "center",
     lights : "off", 
     laptop : "off", 
     mouseEnter : "off", 
     screen : "closed", 
     movie_app: "closed",
     curtain: "closed",
+    closet: "closed",
     day: null,
+    hourhand: 0,
+    minhand:0,
+    sechand: 0,
     fan: "off",
     runInterval: null,
     fanSpeed: 120,
@@ -366,10 +389,28 @@ function updateTime() {
 
 setInterval(updateTime, 1000)
 
+function clockTime() {
+    const today = new Date();
+    const hour = today.getHours();
+    const minutes = today.getMinutes();
+    const seconds = today.getSeconds();
+    if (hour <= 12) {state.hourhand = (minutes/60)*30 + (hour*30)}
+    if (hour > 12) {state.hourhand = (minutes/60)*30 + (hour-12)*30}
+    state.minhand = minutes*6
+    state.sechand = seconds*6
+
+    render()
+}
+
+setInterval(clockTime, 1000)
 
 
 function render() {
-    
+    //Clock
+    hour_hand.style.transform = `rotate(${state.hourhand}deg)`
+    min_hand.style.transform = `rotate(${state.minhand}deg)`
+    sec_hand.style.transform = `rotate(${state.sechand}deg)`
+
     //Lights
     document.body.style.backgroundColor = state.lights === "on" ? "whitesmoke" : "black";
     off_lights.style.display = state.lights === "on" ? "none" : "block";
@@ -402,9 +443,10 @@ function render() {
     anime_indiv.style.display = state.anime_card === "clicked" ? "flex" : "none"
 
     //Curtains
-    morning.style.display = state.day === "morning" && state.curtain === "open" ? "block" : "none"
-    afternoon.style.display = state.day === "afternoon" && state.curtain === "open" ? "block" : "none"
-    evening.style.display = state.day === "evening" && state.curtain === "open" ? "block" : "none"
+    
+    morning.style.display = state.day === "morning" && state.curtain === "open"  ? "block" : "none"
+    afternoon.style.display = state.day === "afternoon" && state.curtain === "open"  ? "block" : "none"
+    evening.style.display = state.day === "evening" && state.curtain === "open"  ? "block" : "none"
     night.style.display = state.day === "night" && state.curtain === "open" ? "block" : "none"
     curtain_closed.style.display = state.curtain === "closed" ? "block" : "none";
     
@@ -416,132 +458,32 @@ function render() {
     fan_2.style.display = state.fan === "on" && state.fanFrame === true ? "block" : "none";
 
     //Bed
-    bed.style.display = state.bed === "messy" ? "block" : "none";
-    bed_made.style.display = state.bed === "tidy" ? "block" : "none";
+    //bed.style.display = state.bed === "messy" ? "block" : "none";
+    //bed_made.style.display = state.bed === "tidy" ? "block" : "none";
+
+    //Closet
+    closet_closed.style.display = state.closet === "closed" ? "block" : "none";
+    closet_open.style.display = state.closet === "opened" ? "block" : "none";
 }
 
-const sidebar_dim = document.querySelector(".sidebar_dim")
-const main_content = document.getElementById("main_content")
-const sidebar_closed = document.getElementById("sidebar_closed")
-
-expand_sidebar.addEventListener("click", () => {
-    
+//buttons
 
 
-    sidebar_closed.classList.toggle('open')
-    sidebar_dim.classList.toggle('dimmed')
-
-    const sidebar_open = sidebar_closed.classList.contains("open")
-
-    if(sidebar_open === true) {
-        console.log("Sidebar opened by arrow.")
-    } else {
-        console.log("Sidebar closed by arrow.")
-    }
-})
-
-document.addEventListener("click", (e) => {
-    const inside_sidebar = sidebar_closed.contains(e.target);
-    const sidebar_open = sidebar_closed.classList.contains("open")
-
-    if (!inside_sidebar && sidebar_open) {
-        sidebar_closed.classList.remove("open");
-        sidebar_dim.classList.remove("dimmed")
-        console.log("Sidebar closed by outside click.")
-    }
-})
-
-
-
-search_icon.forEach((icon, index) => {
-    icon.addEventListener("click", () => {
-        search[index].classList.toggle('open')
-        search_bar[index].classList.toggle('move');
-        search_icon[index].classList.toggle('slide');
-        search_bar[index].focus()
-    })
-})
-
-
-search_bar.forEach((bar, index) => {
-    bar.addEventListener("input", (e) => {
-        const value = e.target.value.toLowerCase();
-        if (index === 0) {
-            const filtered = movieList.filter(movie => 
-            movie.title.toLowerCase().includes(value)
-            )
-            filterTitles(filtered, movie_grid, movie_indiv, "movie")
-        }
-        else if (index === 1) {
-            const filtered = showsList.filter(show => 
-            show.title.toLowerCase().includes(value)
-            )
-            filterTitles(filtered, shows_grid, shows_indiv, "shows")
-        }
-
-        else if (index === 2) {
-            const filtered = animeList.filter(anime => 
-            anime.title.toLowerCase().includes(value)
-            )
-            filterTitles(filtered, anime_grid, anime_indiv, "anime")
-        }      
-    })
-})
-
-
-
-movie_button.addEventListener("click", () => {
-    state.movie_click = "open"
-    state.anime = "closed"
-    state.shows = "closed"
-    state.movie_card = null
-    state.shows_card = null
-    state.anime_card = null
-
-    const p = document.createElement("p")
-    path.innerHTML = ""
-    p.textContent = "Movies"
-    path.append(p)
-    
-    console.log("Movies opened")
+//Closet
+closet_closed.addEventListener("click", () => {
+    console.log("Closet opened.")
+    state.closet = "opened"
     render()
 })
 
-shows_button.addEventListener("click", () => {
-    state.movie_click = "closed"
-    state.anime = "closed"
-    state.shows = "open"
-    state.movie = false
-    state.movie_card = null
-    state.shows_card = null
-    state.anime_card = null
-
-    const p = document.createElement("p")
-    path.innerHTML = ""
-    p.textContent = "Shows"
-    path.append(p)
-
-    console.log("Shows opened")
+closet_open.addEventListener("click", () => {
+    console.log("Closet closed.")
+    state.closet = "closed"
     render()
 })
 
-anime_button.addEventListener("click", () => {
-    state.anime = "open"
-    state.movie_click = "closed"
-    state.shows = "closed"
-    state.movie = false
-    state.movie_card = null
-    state.shows_card = null
-    state.anime_card = null
 
-    const p = document.createElement("p")
-    path.innerHTML = ""
-    p.textContent = "Anime"
-    path.append(p)
 
-    console.log("Anime opened")
-    render()
-})
 
 //Lights
 off_switch.addEventListener('click', () => {
@@ -647,6 +589,121 @@ movie_icon.addEventListener("click", () => {
     render()
 })
 
+//Sidebar
+expand_sidebar.addEventListener("click", () => {
+
+    sidebar_closed.classList.toggle('open')
+    sidebar_dim.classList.toggle('dimmed')
+
+    const sidebar_open = sidebar_closed.classList.contains("open")
+
+    if(sidebar_open === true) {
+        console.log("Sidebar opened by arrow.")
+    } else {
+        console.log("Sidebar closed by arrow.")
+    }
+})
+
+document.addEventListener("click", (e) => {
+    const inside_sidebar = sidebar_closed.contains(e.target);
+    const sidebar_open = sidebar_closed.classList.contains("open")
+
+    if (!inside_sidebar && sidebar_open) {
+        sidebar_closed.classList.remove("open");
+        sidebar_dim.classList.remove("dimmed")
+        console.log("Sidebar closed by outside click.")
+    }
+})
+
+search_icon.forEach((icon, index) => {
+    icon.addEventListener("click", () => {
+        search[index].classList.toggle('open')
+        search_bar[index].classList.toggle('move');
+        search_icon[index].classList.toggle('slide');
+        search_bar[index].focus()
+    })
+})
+
+
+search_bar.forEach((bar, index) => {
+    bar.addEventListener("input", (e) => {
+        const value = e.target.value.toLowerCase();
+        if (index === 0) {
+            const filtered = movieList.filter(movie => 
+            movie.title.toLowerCase().includes(value)
+            )
+            filterTitles(filtered, movie_grid, movie_indiv, "movie")
+        }
+        else if (index === 1) {
+            const filtered = showsList.filter(show => 
+            show.title.toLowerCase().includes(value)
+            )
+            filterTitles(filtered, shows_grid, shows_indiv, "shows")
+        }
+
+        else if (index === 2) {
+            const filtered = animeList.filter(anime => 
+            anime.title.toLowerCase().includes(value)
+            )
+            filterTitles(filtered, anime_grid, anime_indiv, "anime")
+        }      
+    })
+})
+
+
+movie_button.addEventListener("click", () => {
+    state.movie_click = "open"
+    state.anime = "closed"
+    state.shows = "closed"
+    state.movie_card = null
+    state.shows_card = null
+    state.anime_card = null
+
+    const p = document.createElement("p")
+    path.innerHTML = ""
+    p.textContent = "Movies"
+    path.append(p)
+    
+    console.log("Movies opened")
+    render()
+})
+
+shows_button.addEventListener("click", () => {
+    state.movie_click = "closed"
+    state.anime = "closed"
+    state.shows = "open"
+    state.movie = false
+    state.movie_card = null
+    state.shows_card = null
+    state.anime_card = null
+
+    const p = document.createElement("p")
+    path.innerHTML = ""
+    p.textContent = "Shows"
+    path.append(p)
+
+    console.log("Shows opened")
+    render()
+})
+
+anime_button.addEventListener("click", () => {
+    state.anime = "open"
+    state.movie_click = "closed"
+    state.shows = "closed"
+    state.movie = false
+    state.movie_card = null
+    state.shows_card = null
+    state.anime_card = null
+
+    const p = document.createElement("p")
+    path.innerHTML = ""
+    p.textContent = "Anime"
+    path.append(p)
+
+    console.log("Anime opened")
+    render()
+})
+
 
 movieList.forEach(movie => {
     const div = document.createElement("div")
@@ -743,7 +800,7 @@ fan_switch_off.addEventListener("click", () => {
 })
 
 //Bed
-bed.addEventListener("click", () => {
+/*bed.addEventListener("click", () => {
     state.bed = "tidy"
     console.log("Bed has been made.")
     render()
@@ -753,7 +810,7 @@ bed_made.addEventListener("click", () => {
     console.log("Bed is not made.")
     state.bed = "messy"
     render()
-})
+})*/
 
 
 
