@@ -20,7 +20,6 @@ const night = document.getElementById('night');
 
 //Curtains
 const windows = document.querySelectorAll('.window');
-const curtain_open = document.getElementById('curtain_open')
 const curtain_closed = document.getElementById('curtain_closed')
 
 //Lights
