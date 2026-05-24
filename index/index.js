@@ -73,9 +73,7 @@ const anime_indiv = document.querySelector(".anime_indiv")
 const exit_laptop = document.getElementById("close")
 const expand_sidebar = document.getElementById("expand")
 
-//buttons
-const left_pov = document.getElementById("left_pov")
-const right_pov = document.getElementById("right_pov")
+
 
 //sidebar
 const sidebar_dim = document.querySelector(".sidebar_dim")
